@@ -33,27 +33,7 @@ tags:
 
 
 paths:
-  /user/auth/register:
-    post:
-      tags:
-        - auth
-      summary: Set password for new user
-      description: Set a new user password
-      operationId: fristLogin
-      security: []
-      requestBody:
-        $ref: '#/components/requestBodies/UserFirstPassword'  
-        
-      responses:
-        '200':
-          description: successful operation                
-        '400':
-          description: Invalid user supplied, verify that password match the requirements, or that the user does not exist    
-        '500':
-          description: server error
-        
-        
-  /user/auth/login:
+  /auth/login:
     post:
       tags:
         - auth
@@ -86,19 +66,6 @@ paths:
           
         '400':
           description: Invalid username/password supplied
-  /user/auth/logout:
-    get:
-      tags:
-        - auth
-      summary: Logs out current logged in user
-      description: This operation allows users to be logged out.
-      operationId: logoutUser
-      security: []
-      parameters: []
-      responses:
-        '200':
-          description: successful operation
-
   /user:
     get:
       tags:
@@ -348,7 +315,6 @@ paths:
                             type: string
         '400':
           description: 'Hygraph does not respond'
-
   /quote:
     post:
       tags:
